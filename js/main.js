@@ -75,6 +75,7 @@ const changeColor = (computer=false,button) => {
 	if(!computer && turn && buttons.indexOf(button) != pattern[i++])
 		return gameOver('You got the sequence wrong.')
 	action = true
+	go = performance.now()
 	const tmp = button.backgroundColor
 	button.backgroundColor = tmp.replace(/[0-9]+\%/, '100%')
 	radial.draw()
