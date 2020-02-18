@@ -18,7 +18,7 @@ const $ = _ => document.querySelector(_)
 
 const init = () => {
 	colorChangeFeedback = 250
-	playPatternRate = 1000
+	playPatternRate = $('#speed').value
 	maxTimeAllowed = 3000
 	outerCirle = Math.min(innerWidth, innerHeight) * 0.4
 	pattern = []
@@ -47,8 +47,8 @@ const init = () => {
 	cnf = {
 		innerCircle: outerCirle-outerCirle * 0.75,
 		outerCircle: outerCirle,
-		posX: innerWidth/2 - outerCirle,
-		posY: innerHeight/2 - outerCirle,
+		posX: innerWidth/2 - outerCirle-15,
+		posY: innerHeight/2 - outerCirle-15,
 		fontSize: 40,
 		textColor: 'white',
 		isFixed: true,
@@ -156,6 +156,7 @@ const gameOver = msg => {
 	$('#msg').innerText = msg
 	$('#level').innerText = pattern.length
 	$('#endScreen').style.display = 'flex'
+	$('#restart').focus()
 }
 
 const addEvents = () => {
